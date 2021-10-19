@@ -21,7 +21,7 @@ The map above is a very simple Leaflet map. You can pan, zoom, and click it, but
 
 View the code below with comments explaining what each part does:
 
-```
+```html
 <html>
 <head>
 	<title>Intro to Leaflet</title>
@@ -71,7 +71,7 @@ Shapefiles, as you no doubt know, are the default vector data format when workin
 
 Instead of storing data in tables, GeoJSON stores data in "key: value pairs." These are both machine readable and human readable. Here's an example:
 
-```
+```javascript
 { "type": "FeatureCollection",
   "features": [
     { "type": "Feature",
@@ -120,7 +120,7 @@ Here's the code we use to add the earthquake GeoJSON to our map. In Atom, add th
 
 In the `head` of the HTML file, after the line of code where you add the leaflet.js script, insert the following:
 
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 ```
 
@@ -128,7 +128,7 @@ This is a link to the JQuery library. JQuery is a common JavaScript library that
 
 Next, in the `body` of the HTML file, after the code where you initialize the map but before the `</script>` tag closes, add the following:
 
-```
+```javascript
 // load GeoJSON from an external file and add it to the map
 $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",function(data){
     L.geoJson(data).addTo(mymap);
@@ -147,7 +147,7 @@ If we hover over the markers, we should see the cursor change from the panning h
 
 Change the code that creates the GeoJSON layer as follows, adding the `pointToLayer` option to the `L.geoJson()` method before we add the layer to the map:
 
-```
+```javascript
 $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",function(data){
     L.geoJson(data, {
         pointToLayer: function(feature, latlng){
@@ -163,7 +163,7 @@ $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geo
 
 Now, when we click on each earthquake marker, we should get a pop-up that reads "hello!" Let's make that text a little more helpful. Change the `marker.bindPopup` line of code as follows:
 
-```
+```javascript
 marker.bindPopup("Location: " + feature.properties.place + "<br>Magnitude: " + feature.properties.mag + "<br><a href =" + feature.properties.url +">More info</a>");
 ```
 
@@ -177,13 +177,13 @@ By default, the points are styled with generic blue markers. This is fine, but w
 
 First, let's change our markers to circle markers. Make the following change to your code. JavaScript is case sensitive, so make sure you capitalize correctly!
 
-```
+```javascript
 var marker = L.circleMarker(latlng);
 ```
 
 By default, these are styled as blue circles with a radius of 10 pixels, and a partly transparent fill. We can change these style defaults with options that are specified within the `L.circleMarker()` method. Make the following change and view the results:
 
-```
+```javascript
 var marker = L.circleMarker(latlng, {radius: 2, color: 'red'});
 ```
 
@@ -191,7 +191,7 @@ Here we've made the radius just 2px across and changed the color of the circle t
 
 Next, let's set the radius of the circle to change based on the magnitude of the earthquake. Make the following change to your code:
 
-```
+```javascript
 var marker = L.circleMarker(latlng, {radius: feature.properties.mag, color: 'red'});
 ```
 
@@ -199,7 +199,7 @@ Here we're pulling our radius value from the magnitude property of the GeoJSON. 
 
 Currently, the data is not classified, as is typical with proportional symbol maps of numeric data. But what if we were working with ordered categorical data? Let's say we wanted to put the quakes into four categories: tiny (quakes under mag 1), small (quakes between mag 1 and 2.5), medium (between mag 2.5 and 4.5), and large (quakes larger than mag 4.5). We can achieve this with an if/else statement:
 
-```
+```javascript
 $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",function(data){
 	// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
@@ -226,19 +226,19 @@ Make these changes, save your work, and view the changes in your web browser:
 
 Finally, let's practice good cartography and add some vital map elements. We'll add the title and explanatory text outside of the map and in the web page itself. At the very top of the `<body>` of your html document, above the code where you create the div that holds the map, add the following line of code:
 
-```
+```html
 <h1>Earthquakes that have occurred in the past 24 hours</h1>
 ```
 
 When you save and preview the changes, you might now have to scroll down a bit to see both the header and the full map. Let's shrink the size of the map div so that this isn't the case. Change the `"height"` attribute of the map div to 80% instead of 95%:
 
-```
+```html
 	<div id="map" style="height: 80%"></div>
 ```
 
 Sans-serif fonts are generally easier to read on digital screens than serified fonts, but our text defaults to Times New Roman. Let's change that with some CSS styling. In the `<head>` of the HTML document, beneath the lines of code where we add the Leaflet and JQuery links, add the following:
 
-```
+```html
 	<!--CSS styles-->
 	<style>
 	body {
@@ -249,7 +249,7 @@ Sans-serif fonts are generally easier to read on digital screens than serified f
 
 Next, let's add some explanatory text. In the `<body>` of the HTML document, below the code that creates the map div but above the opening `<script>` tag, add the following:
 
-```
+```html
 	<p>This map depicts all earthquakes that have occurred in the past 24 hours. Data comes from the <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS Live Earthquake Feed</a> and is updated every minute. Earthquakes are visualized with proportional symbols where earthquakes of larger magnitude are depicted with larger circle markers. Click on a marker for more information about the earthquake.</p>
 	<p>The Pacific Northwest lies along the Cascadia fault. Tectonic activity along this fault could cause a catastrophic earthquake that would produce major damage throughout our region. Learn about how researchers at the University of Washington are modelling earthquake risk and preparing for disaster response at the <a href="https://hazards.uw.edu/geology/m9/">M9 Project</a>.</p>
 ```
@@ -258,7 +258,7 @@ The `<p>` tag is an HTML element that we use to enclose paragraphs. The `<a>` ta
 
 Having text span the entire width of the browser window makes for very short, wide paragraphs. Let's limit the width and center the main content on our page with a little extra CSS styling. Back in the `<head>` inside the `<style>` tags, update the CSS as follows:
 
-```
+```css
 body {
 	font-family: sans-serif;
 	max-width: 900px;
@@ -272,13 +272,13 @@ Now, our map and the explanatory text will not exceed a width of 900px, no matte
 
 Finally, let's add a legend. Somewhat counter-intuitively, adding a legend is not particularly easy with Leaflet. Let's hope that some future version release changes that. In the meantime, adding a legend to our map will take four final steps: linking to one more library, creating the legend content in HTML, styling the legend with CSS, and adding the legend with JavaScript. First, in the `<head>` add this line of code below your link the JQuery library and above the `<style>` section:
 
-```
+```html
 <script src= "https://cdn.jsdelivr.net/npm/leaflet-legend@1.0.2/leaflet-legend.min.js"></script>
 ```
 
 This library (or 'plugin' as Leaflet calls them) was made by a Leaflet user to make it a bit easier to add legends. This is actually one of the things I love about Leaflet; its user community is empowered and encouraged to make add-ons that increase the functionality of the framework. Next, add the following HTML code to the `<body>` of your document, below the explanatory text and above the `<script>` tag. This code uses SVG (scalable vector graphics) to represent the earthquake symbols on the map and html text to provide the labels. I won't get into the details of how this code works here, but look closely at it and see if you can figure out what's going on in each section. You'll be making legends of your own in the future, so it never hurts to begin understanding them now! 
 
-```
+```html
 <div id="legend">
 		<h3><center>Earthquake magnitude</center></h3>
 		<ul style="list-style-type:none">
@@ -312,7 +312,7 @@ This library (or 'plugin' as Leaflet calls them) was made by a Leaflet user to m
 
 Save your changes and view them in the web browser. If you scroll down, you should see the legend below the explanatory text. However, we want this to appear on the map itself. Toward the bottom of the `<body>`, just before the `</script>` tag closes, add the following JavaScript code:
 
-```
+```javascript
 	var Legend =  new L.Control.Legend({
 		position: 'bottomright',
 	});
@@ -323,7 +323,7 @@ Save your changes and view them in the web browser. If you scroll down, you shou
 
 Now the legend should appear on the map itself. But it's hard to read. Let's add a little CSS styling to fix that. In the `<head>`, inside the `<style>` section of your code, add the following CSS:
 
-```
+```css
 	#legend {
 		line-height: 0px;
 		background: white;
