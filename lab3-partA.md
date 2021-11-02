@@ -3,7 +3,7 @@
 ### Introduction
 In this lab, you'll hone your technical skills by building a routing application. You'll also practice the more qualitative skills of evaluation and critique by assessing different Leaflet plugin options and reading their documentation. This lab uses the Leaflet mapping platform and a routing plugin, with additional functionality that is built on the Mapbox Directions API and Mapbox Geocoding API. All the files you need for this lab you will either create or download from the Internet. A list of deliverables is included at the end of these instructions.
 
-### Part 1: Working with and assesssing plugins
+### Part 1: Working with and assessing plugins
 As you know from previous coursework, the core set of Leaflet features is designed to be as lightweight as possible, and additional features are provided through plugins. The majority of these plugins are built not by Leaflet staff but by community members. This modularity and customizability is typical of open-source software and has many advantages, but it also means quality can vary from plugin to plugin, so being able to assess them is important. 
 
 Navigate to the Routing section of the Leaflet Plugins page: https://leafletjs.com/plugins.html#routing. Here you’ll see a list of 8 different routing plugins. Leaflet provides the name and a link to an external website or GitHub repository with more information about the plugin, a brief description, and the name of the maintainer of the plugin. Pick three of these, and answer the following questions about each in your write up: 
