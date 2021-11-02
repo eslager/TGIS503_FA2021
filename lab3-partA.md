@@ -1,7 +1,7 @@
 # Lab 2: Routing with Leaflet and the Mapbox Directions API
-## TGIS 504, Winter 2020, Dr. Emma Slager
+## TGIS 503, Fall 2021, Dr. Emma Slager
 ### Introduction
-In this lab, you'll hone your technical skills by building a routing application. You'll also practice the more qualitative skills of evaluation and critique by assessing different Leaflet plugin options and evaluating the mobile friendliness of a particular API. This lab uses the Leaflet mapping platform and a routing plugin, with additional functionality that is built on the Mapbox Directions API and Mapbox Geocoding API. All the files you need for this lab you will either create or download from the Internet. A list of deliverables is included at the end of these instructions.
+In this lab, you'll hone your technical skills by building a routing application. You'll also practice the more qualitative skills of evaluation and critique by assessing different Leaflet plugin options and reading their documentation. This lab uses the Leaflet mapping platform and a routing plugin, with additional functionality that is built on the Mapbox Directions API and Mapbox Geocoding API. All the files you need for this lab you will either create or download from the Internet. A list of deliverables is included at the end of these instructions.
 
 ### Part 1: Working with and assesssing plugins
 As you know from previous coursework, the core set of Leaflet features is designed to be as lightweight as possible, and additional features are provided through plugins. The majority of these plugins are built not by Leaflet staff but by community members. This modularity and customizability is typical of open-source software and has many advantages, but it also means quality can vary from plugin to plugin, so being able to assess them is important. 
@@ -16,7 +16,7 @@ Navigate to the Routing section of the Leaflet Plugins page: https://leafletjs.c
 ### Part 2: Integrate routing in a Leaflet map
 Now that you’re a little more familiar with the routing plugins available for Leaflet, let’s integrate one into a Leaflet map. 
 #### Step 1: Choose a routing plugin and set up your workspace
-For basic routing functionality, I like Leaflet Routing Machine. Its latest version was released in November 2018, and the latest commit was made to its GitHub repository earlier this month. The documentation is more developed than many plugins, and there are working demos and even tutorials available. Let’s go with this one. As with most Leaflet libraries and plugins, we can download the necessary files (a CSS file and a JS file) for using Leaflet Routing Machine and host them ourselves, or we can find them on unpkg.com. We'll use the CDN unpkg.com version instead of downloading. 
+For basic routing functionality, I like Leaflet Routing Machine. Its latest version was released in November 2018, and the latest commit was made to its GitHub repository in June 2021. The documentation is more developed than many plugins, and there are working demos and even tutorials available. Let’s go with this one. As with most Leaflet libraries and plugins, we can download the necessary files (a CSS file and a JS file) for using Leaflet Routing Machine and host them ourselves, or we can find them on unpkg.com. We'll use the CDN unpkg.com version instead of downloading. 
 
 #### Step 2: Set up a minimal Leaflet map and initialize the routing plugin
 In a text editor like Atom, let's create our files: index.html, styles.css, and scripts.js. Save these in a new folder. As always, consider uploading your folder as a repository to GitHub now, or you can save this step until later when you're ready to put your work up on GitHub Pages. 
@@ -28,8 +28,12 @@ Edit your index.html file to include basic header information, CDN links to the 
 <head>
     <meta charset="utf-8" />
     <title>give your page a title</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
 </head>
 <body>
     <div id="map"></div>
@@ -58,13 +62,15 @@ var map = L.map('map').setView([47.25, -122.44], 11);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/light-v10',
+    id: 'mapbox/streets-v11',
     accessToken: 'yourAccessTokenGoesHere',
 }).addTo(map);
 ```
-You should now have an HTML page that loads a Leaflet map centered on the South Sound. The code you copied above uses the Mapbox light style for its basemap. However, this style doesn't have the best contrast, making it somewhat difficult to use in bright light environments. Change the basemap to another style--either a custom style or another basemap option made available by Mapbox or another tile service--that has high contrast and emphasizes roads over terrain or other features. 
+Replace the text `yourAccessTokenGoesHere` with your own Mapbox access token. If you have not yet set up a Mapbox account, you will have to do this now at [this link](https://account.mapbox.com/auth/signup/). Once you've signed up and logged in, you can find your access token from [your account](https://account.mapbox.com/access-tokens/). The default public token will suffice for now. 
 
-Next let's add links to the CSS and JS files we need in order to initialize the routing plugin. In the 'Getting Started' section of the [Leaflet Routing Machine homepage](http://www.liedman.net/leaflet-routing-machine), you can find links to where the necessary CSS and JS files are accessible via unpkg.com. Copy those links into the `<head>` of your index. 
+You should now have an HTML page that loads a Leaflet map centered on the South Sound. The code you copied above uses the Mapbox streets style for its basemap. If you want, you can change this to another basemap, easily choosing from the Mapbox owned [style list](https://docs.mapbox.com/api/maps/styles/#mapbox-styles). 
+
+Next let's add links to the CSS and JS files we need in order to initialize the routing plugin. In the 'Getting Started' section of the [Leaflet Routing Machine homepage](http://www.liedman.net/leaflet-routing-machine), you can find links to where the necessary CSS and JS files are accessible via unpkg.com. Copy those links into the `<head>` of your index. (Note that you should only copy the Leaflet Routing Machine CSS and JS links, as you've already added your Leaflet libraries, and the versions of the Leaflet libraries in the code sample on the Leaflet Routing Machine page are outdated.)
 
 Then, under the section of code that intiliazes your map in your scripts.js file, add the following code to initialize the routing plugin:
 ```javascript
@@ -76,7 +82,7 @@ Then, under the section of code that intiliazes your map in your scripts.js file
            routeWhileDragging: true
       }).addTo(map);
 ```
-This code initializes the routing control and adds it to the map. The waypoints option defines the start and stop points, while the routeWhileDragging: true option allows you to change the markers at the start and stop points by dragging them. Save your work and preview in a browser. You should see a map with markers at either end of a route and directions from Pinkerton Hall to Point Defiance. Try adding a third point at latitude and longitude 47.258024,  -122.444725. Aha, now you can get baked goods at Corina Bakery on the way to the park.
+This code initializes the routing control and adds it to the map. The waypoints option defines the start and stop points, while the routeWhileDragging: true option allows you to change the markers at the start and stop points by dragging them. Save your work and preview in a browser. You should see a map with markers at either end of a route and directions from Pinkerton Hall to Point Defiance. Try adding a third point at latitude and longitude 47.258024,  -122.444725. Aha, now you can get pastries at Corina Bakery on the way to the park.
 #### Step 3: Modifying options for the routing control
 
 If you aren’t testing in Google Chrome, switch browsers now and open up the console in Google Developer Tools. You should see the warning below:
