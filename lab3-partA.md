@@ -95,7 +95,7 @@ router: L.Routing.mapbox('your-access-token-here'),
 ```
 Insert your access token where requested, save, and open in Chrome. View the console in Developer Tools and you should no longer see the OSRM warning. Mapbox Directions API limits your free usage to 50,000 geolocation requests per month. The limit is more than sufficient for our purposes, but if you were to use this in a commercial product, you might exceed this and either pay for more usage or use a different routing service. 
 
-There are various options built in to the Routing control that we can change to modify the application. Find a full list of these options in the plugin's documentation here: http://www.liedman.net/leaflet-routing-machine/api/ Note that the L.Routing.control class extends the L.Routing.interface class, so any of the options available under L.Routing.interface can also be used when we intialize L.Routing.control. Let's use a couple of these. 
+There are various options built in to the Routing control that we can change to modify the application. Find a full list of these options in the plugin's documentation here: http://www.liedman.net/leaflet-routing-machine/api/ Let's use a couple of these options to customize the Routing control. 
 
 First, change the units from metric to imperial by adding the following key-value pair as an option when you intialize the control: 
 ```javascript
@@ -148,7 +148,7 @@ map.on('click', function(e) {
  ```
 This code uses functionality built into JavaScript itself and into Leaflet itself to build a little user interface. When the map is clicked, the code creates a popup that contains two buttons, one called `startBtn` and one called `destBtn`. Save your work and test this out. Clicking the map produces the popup with buttons, but if you click the buttons, nothing happens. Let’s change that. 
 
-When the “Start from this location” button is clicked, the first waypoint of the route should be replaced with the location that the user clicked on. Modifying the waypoints can be done with the method spliceWaypoints, which mimics the behavior of [JavaScript’s Array.splice](https://www.w3schools.com/jsref/jsref_splice.asp). To replace the first waypoint, you tell Leaflet Routing Machine to remove one waypoint at index 0 (the first), and then add a new at the clicked location. Add this code inside the map’s click event handler; e will refer to the click event, and e.latlng is the location clicked:
+When the “Start from this location” button is clicked, the first waypoint of the route should be replaced with the location that the user clicked on. Modifying the waypoints can be done with the method spliceWaypoints, which mimics the behavior of [JavaScript’s Array.splice](https://www.w3schools.com/jsref/jsref_splice.asp). To replace the first waypoint, you tell Leaflet Routing Machine to remove one waypoint at index 0 (the first waypoint), and then add a new waypoint at the clicked location. Add this code inside the map’s click event handler; e will refer to the click event, and e.latlng is the location clicked:
 ```javascript
     L.DomEvent.on(startBtn, 'click', function() {
         control.spliceWaypoints(0, 1, e.latlng);
@@ -174,27 +174,19 @@ waypoints: [
               //L.latLng(47.318017, -122.542970)
           ],
 ```
-Save and test. Is the ability to click on the map to create waypoints sufficiently discoverable? I don’t think it is. Make some changes to your map to make it more so. There are many ways to do this—you could create an overlay on your Leaflet map with instructions, set an initial starting waypoint with a popup that tells the user to click the map to change its location, etc. Come up with some way of improving the discoverability of your map, and explain the change you made in your write up. 
+Save and test. Is the ability to click on the map to create waypoints obvious to someone using this tool for the first time? I don’t think it is. Make some changes to your map to make it more so. There are many ways to do this—you could create an overlay on your Leaflet map with instructions, set an initial starting waypoint with a popup that tells the user to click the map to change its location, include explanatory text above or below the map, etc. Come up with some way of making it obvious to your map user that they can click on the map to get directions to or from the location they clicked and implement it in your code. 
 
-#### Step 6: add geolocation
-Based on what you’ve learned in last lab and this lab, add functionality that will enable the user to zoom to their current location in case they want to use it as one of their waypoints. This will require using the map.locate function, which is built into Leaflet. I also recommend using the [EasyButton plugin](https://github.com/CliffCloud/Leaflet.EasyButton) to add your button, though it is not required. 
-
-#### Step 7: host your map online
+#### Step 6: host your map online
 Your final output for this part of the lab should be a Leaflet map with the following features/functionalities:
 * Draggable markers
 * Units in miles
 * collapsable control that is hidden on initial map load
 * Geocoder to enable searching for locations
 * Clickable buttons to create waypoints 
-* Some modification that makes clickable functionality more discoverable
-* The ability to zoom to current location 
+* Some modification that makes clickable functionality more obvious to users
 
-Please host your map on GitHub Pages or your UW server space and include a link to its location in your lab write-up. 
-
-### Part 3: Evaluating and critiquing mobile friendliness
-Though Leaflet Routing Machine is a fairly good plugin, one major disadvantage is that the CSS file its maintainer makes available is not optimized for mobile browsing. In fact, let’s test this. Go view the map you made in Part 2 on your mobile device. Not great. In your browser, open up the leaflet-routing-machine.css file at its location on unpkg.com: https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css. Notice that widths, heights, and font sizes are defined in pixels rather than in relative units like percents or ems and that there is very little attempt to implement responsive design. 
-
-I won’t ask you to rebuild this CSS file to make it mobile-friendly, but thinking back to the unit on responsive design and design conventions for mobile maps, please write a paragraph in your lab-write up that includes five specific suggestions for how you would modify the CSS to make Leaflet Routing Machine mobile-friendly. 
+Please host your map on GitHub Pages or your UW server space and include a link to its location in your lab write-up, which should also include your assessment of the Leaflet routing plugins from Part 1 of the lab instructions above. 
+ 
 
 ### Deliverables
 **Part 1**: 
@@ -208,9 +200,4 @@ Answer the following questions about three different routing plugins that can wo
 
 **Part 2**: 
 * Include a link to the URL of the map you built in Part 2
-* Explain how you modified your map to improve the discoverability of the waypoint creating affordance.
-
-**Part 3**: 
-
-Drawing on the unit on responsive design and design conventions for mobile maps (Week 2), write a paragraph that includes five specific suggestions for how you would modify the CSS to make Leaflet Routing Machine mobile-friendly.
 
