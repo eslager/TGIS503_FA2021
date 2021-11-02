@@ -150,7 +150,7 @@ map.on('click', function(e) {
  ```
 This code uses functionality built into JavaScript itself and into Leaflet itself to build a little user interface. When the map is clicked, the code creates a popup that contains two buttons, one called `startBtn` and one called `destBtn`. Save your work and test this out. Clicking the map produces the popup with buttons, but if you click the buttons, nothing happens. Let’s change that. 
 
-When the “Start from this location” button is clicked, the first waypoint of the route should be replaced with the location that the user clicked on. Modifying the waypoints can be done with the method spliceWaypoints, which mimics the behavior of [JavaScript’s Array.splice](https://www.w3schools.com/jsref/jsref_splice.asp). To replace the first waypoint, you tell Leaflet Routing Machine to remove one waypoint at index 0 (the first waypoint), and then add a new waypoint at the clicked location. Add this code inside the map’s click event handler; e will refer to the click event, and e.latlng is the location clicked:
+When the “Start from this location” button is clicked, the first waypoint of the route should be replaced with the location that the user clicked on. Modifying the waypoints can be done with the method spliceWaypoints, which mimics the behavior of [JavaScript’s Array.splice](https://www.w3schools.com/jsref/jsref_splice.asp). To replace the first waypoint, you tell Leaflet Routing Machine to remove one waypoint at index 0 (the first waypoint), and then add a new waypoint at the clicked location. Add this code inside the map’s click event handler (that is, after the `L.popup()` section of code and before the final `});`. e will refer to the click event, and e.latlng is the location clicked:
 ```javascript
     L.DomEvent.on(startBtn, 'click', function() {
         control.spliceWaypoints(0, 1, e.latlng);
@@ -176,7 +176,7 @@ waypoints: [
               //L.latLng(47.318017, -122.542970)
           ],
 ```
-Save and test. Is the ability to click on the map to create waypoints obvious to someone using this tool for the first time? I don’t think it is. Make some changes to your map to make it more so. There are many ways to do this—you could create an overlay on your Leaflet map with instructions, set an initial starting waypoint with a popup that tells the user to click the map to change its location, include explanatory text above or below the map, etc. Come up with some way of making it obvious to your map user that they can click on the map to get directions to or from the location they clicked and implement it in your code. 
+Save and test. Is the ability to click on the map to create waypoints obvious to someone using this tool for the first time? I don’t think it is. Make some changes to your map to make it more so. There are many ways to do this—you could [create a textbox overlay](https://stackoverflow.com/questions/33767463/overlaying-a-text-box-on-a-leaflet-js-map) on your Leaflet map with instructions, set an initial starting waypoint (instead of setting initial waypoints to `null`) with a popup that tells the user to click the map to change its location, include explanatory text above or below the map, etc. Come up with some way of making it obvious to your map user that they can click on the map to get directions to or from the location they clicked and implement it in your code. 
 
 #### Step 6: host your map online
 Your final output for this part of the lab should be a Leaflet map with the following features/functionalities:
