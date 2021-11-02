@@ -113,7 +113,7 @@ Now, review the documentation to figure out how you can set the control to be co
 #### Step 4: Add a geocoder so you can add waypoints by searching for an address or location
 Routing software is only able to look up routes between coordinate pairs. Thus, if users want to find routes between addresses or other locations described as a string of text, we need a geocoder that can turn that address string into a coordinate pair. For this, we add a geocoding service as a plugin to extend our Leaflet Routing Machine plugin. It’s plugins on plugins, y’all! 
 
-The person who developed Leaflet Routing Machine also developed a Leaflet geocoder plugin that can be easily combined with the routing machine. It is called Leaflet Control Geocoder, and it can be used with many different geocoding services, such as [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim), [Bing Locations API](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/), [Google Geolocating API](https://developers.google.com/maps/documentation/geocoding/start), or [Mapbox Geocoding API](https://docs.mapbox.com/api/search/), among others. Since we're using Mapbox for directions, let's also use its geocoding service. 
+The person who developed Leaflet Routing Machine also developed a Leaflet geocoder plugin that can be easily combined with the routing machine. It is called Leaflet Control Geocoder, and it can be used with many different geocoding services, such as [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim), [Bing Locations API](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/), [Google Geolocating API](https://developers.google.com/maps/documentation/geocoding/start), or [Mapbox Geocoding API](https://docs.mapbox.com/api/search/), among others. We'll use a geocoder called Photon, because it is free and open-source and doesn't require an access token or API key.  
 
 To include the geocoder plugin, we first need to add links to its CSS and JS files in our index.html page. We’ll use unpkg again, though we could also download and store these locally. Add the following links to your index.html. I recommend keeping all your CSS files together and all your JS files together: 
 
@@ -123,7 +123,7 @@ To include the geocoder plugin, we first need to add links to its CSS and JS fil
 ```
 Next, we initialize the plugin by adding the control to a map instance. As an option when you initialize the routing control, add the following line of code, adding your mapbox access token where requested:
 ```javascript
-  geocoder: L.Control.Geocoder.mapbox('yourAccessTokenGoesHere'),
+  geocoder: L.Control.Geocoder.photon(),
 ```
 Test this out. Your routing control should now include text boxes where you can search for locations that are geocoded and available for routing. Note that there are again options that you can change to modify the geocoder's behavior. Find the list of these options in the documentation here: https://github.com/perliedman/leaflet-control-geocoder#api.
 
