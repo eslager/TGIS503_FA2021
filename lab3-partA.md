@@ -1,4 +1,4 @@
-# Lab 2: Routing with Leaflet and the Mapbox Directions API
+# Lab 3a: Routing with Leaflet and the Mapbox Directions API
 ## TGIS 503, Fall 2021, Dr. Emma Slager
 ### Introduction
 In this lab, you'll hone your technical skills by building a routing application. You'll also practice the more qualitative skills of evaluation and critique by assessing different Leaflet plugin options and reading their documentation. This lab uses the Leaflet mapping platform and a routing plugin, with additional functionality that is built on the Mapbox Directions API and Mapbox Geocoding API. All the files you need for this lab you will either create or download from the Internet. A list of deliverables is included at the end of these instructions.
