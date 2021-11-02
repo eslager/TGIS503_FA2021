@@ -93,6 +93,8 @@ By default, Leaflet Routing Machine uses routing software from the Open Source R
 ```javascript
 router: L.Routing.mapbox('your-access-token-here'),
 ```
+Note: remember that the options are declared inside the parentheses after the control is intialized. Thus, add the above code after the line of code that reads `           routeWhileDragging: true`. Don't forget to add the necessary comma! 
+
 Insert your access token where requested, save, and open in Chrome. View the console in Developer Tools and you should no longer see the OSRM warning. Mapbox Directions API limits your free usage to 50,000 geolocation requests per month. The limit is more than sufficient for our purposes, but if you were to use this in a commercial product, you might exceed this and either pay for more usage or use a different routing service. 
 
 There are various options built in to the Routing control that we can change to modify the application. Find a full list of these options in the plugin's documentation here: http://www.liedman.net/leaflet-routing-machine/api/ Let's use a couple of these options to customize the Routing control. 
