@@ -40,6 +40,7 @@ In this part of the lab, you'll take one of the GeoJSONs you've just created and
 
 The main learning goal here is for you to figure out how to adapt existing tutorials to meet your goals and work with your data, so I won't provide too much further guidance. But to help just a little, here are a couple of hints and reminders: 
 
+* One thing to note is that the tutorial brings the geojson data in slightly differently than we've been doing it. Rather than use an AJAX request to load the geojson file, it formats [the GeoJSON](https://leafletjs.com/examples/choropleth/us-states.js) as a JavaScript file that contains a variable called `statesData,` and the value of `statesData` is set to contain the GeoJSON. You are welcome to bring your data into your map using either this method or the AJAX method you used in Lab 2--whichever you prefer. 
 * The property that you'll want to use for styling your polygons is called 'vac_rate' (standing for vacancy rate). It is a percent, so values can range from 0-100. 
 * You can decide how many data classes you want to use for your choropleth; it may be useful to examine the data in ArcGIS again to decide where to put the breaks between classes. Also consider what classification method you want to use (i.e. Jenks natural breaks, equal interval, quantiles, etc.). 
 * [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) is a great tool for making color choices. 
