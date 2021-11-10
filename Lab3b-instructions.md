@@ -6,7 +6,7 @@
 
 In this part of lab 3, you'll practice converting data from Shapefile to GeoJSON so that it can be displayed in a web map. Additionally, you'll practice adapting instructions from an online tutorial to fit the data and visualization goals of a similar but distinct mapping project. 
 
-*Update (11/10/21):* After our check-in about this lab in class this week, I've decided to change the deliverables for this lab. You will be required to complete Part 1 of the instructions below (converting from Shapefile to GeoJson, using both ArcGIS and Mapshaper, and comparing the two tools), but Part 2 is now optional. You may complete the choropleth map for extra credit points, but you do not need to. 
+**Update (11/10/21):** *After our check-in about this lab in class this week, I've decided to change the deliverables for this lab. You will be required to complete Part 1 of the instructions below (converting from Shapefile to GeoJson, using both ArcGIS and Mapshaper, and comparing the two tools), but Part 2 is now optional. You may complete the choropleth map for extra credit points, but you do not need to.* 
 
 ### Part 1: Converting from Shapefile to GeoJSON
 
