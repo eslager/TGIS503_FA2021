@@ -6,6 +6,8 @@
 
 In this part of lab 3, you'll practice converting data from Shapefile to GeoJSON so that it can be displayed in a web map. Additionally, you'll practice adapting instructions from an online tutorial to fit the data and visualization goals of a similar but distinct mapping project. 
 
+*Update (11/10/21):* After our check-in about this lab in class this week, I've decided to change the deliverables for this lab. You will be required to complete Part 1 of the instructions below (converting from Shapefile to GeoJson, using both ArcGIS and Mapshaper, and comparing the two tools), but Part 2 is now optional. You may complete the choropleth map for extra credit points, but you do not need to. 
+
 ### Part 1: Converting from Shapefile to GeoJSON
 
 From Canvas, download the Zip folder named '2020_Census_Tracts.' This folder contains a shapefile of Census tracts in Pierce County, with basic demographic and housing information for the Census tracts in its attribute table. Eventually, you'll be making a choropleth map of the housing vacancy rate by Census tract. But first, you need to get this shapefile into a useable GeoJSON file so that we can import it into a Leaflet map. 
@@ -34,7 +36,8 @@ In your write up, answer the following questions:
 * Using your file manager (e.g. Windows File Explorer or MacOS Finder), find the the size of the two GeoJSON files you've just created. What are their sizes? Based only on this information, which do you think is better to use in your web map and why? 
 * Describe which method (ArcMap export or Mapshaper web converter) you prefer for converting Shapefiles to GeoJSON, and justify your answer. (There is no correct answer here; I just want you to reflect on which workflow <u>you</u> prefer.) Your answer doesn't need to be longer than a brief paragraph. 
 
-### Part 2: creating an interactive choropleth
+
+### Part 2: creating an interactive choropleth (optional, for extra credit)
 
 In this part of the lab, you'll take one of the GeoJSONs you've just created and make a choropleth map of the rate of housing vacancy in each Census tract in Pierce County. To do this, you should draw on [this tutorial from Leaflet](https://leafletjs.com/examples/choropleth/), making changes as needed to make the map work with your data, rather than the data provided by Leaflet. 
 
@@ -50,7 +53,9 @@ Your final map should resemble the tutorial, in that it should be a choropleth w
 
 ### What to submit
 
-Please submit a write-up with the answers to the questions in Part 1, and a link to your map from Part 2. 
+For Part 1, please submit a write-up with the answers to the questions in Part 1. If you do not complete the optional Part 2, please also submit the two GeoJson files you created. 
+
+If choose to complete Part 2, please also submit a link to your map. (If you do this, I will assess the GeoJson file you chose to use from the map, so you do not need to separately submit your GeoJson files.)
 
 
 
