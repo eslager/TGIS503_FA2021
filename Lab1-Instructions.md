@@ -2,7 +2,7 @@
 ### Section 1: Introduction
 This lab is intended to help you dive into web development. In this lab you will develop a webpage from scratch and add some content to it. This document outlines the steps you should take to get started building a website and the required functionality that must be available in the final submission. 
 
-Labs in this class will not be step-by-step instructions. It is expected that if you don’t know how to do something that you attempt to find the answer, ask your peers, or come to me for guidance. I’ve included some helpful links at the end of this document that should be a good starting point for figuring out how to do specific tasks. 
+This lab does not include step-by-step instructions for every task. It is expected that if you don’t know how to do something that you attempt to find the answer (e.g. by searching your class notes), ask your peers, or come to me for guidance. I’ve included some helpful links at the end of this document that should be a good starting point for figuring out how to do specific tasks. 
 
 Your website should teach me something. It can be about anything as long as there is a coherent theme for the site. It should have interactivity and allow me to navigate around different subjects surrounding your topic. Use as many different types of media as you are comfortable with to help convey your point. Specific requirements can be found in this document in section 3, and grading rubric is available on Canvas. 
 
@@ -36,13 +36,13 @@ At a minimum, your website must include the following:
 6. Define properties for at least 3 CSS selectors to dictate the styles of headers, paragraphs, images, or some other element
 7. Define at least 1 CSS *class* to dictates the style of an element you want to style uniquely
 8. Add color and change fonts to beautify the site
+9. Embed an iFrame (perhaps containing the Google MyMaps map you've made for the Week 2 Reading Response)
 
 ### Section 4: Bonus Requirements
 If HTML and CSS are not new to you (or even if they are) and you want to challenge yourself to go beyond these requirements, by all means please do! Bonus points will be awarded on a case-by-case basis. Some ideas for additional things to include are: 
 
-1. Embed an iFrame (perhaps containing a map!)
-2. Instead of using text hyperlinks to navigate pages, use buttons 
-3. Design and implement a header bar for your website navigation
+1. Instead of using text hyperlinks to navigate pages, use buttons 
+2. Design and implement a header bar for your website navigation
 
 ### Section 5: Deliverables
 To complete this assignment, submit a zipped folder containing: 
