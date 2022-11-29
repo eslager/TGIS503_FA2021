@@ -6,23 +6,23 @@ In this assignment, you build a portfolio site to showcase the mapping work you 
 ### Background
 Creating CSS styles is hard! Luckily there are plenty of generous and talented people on the Internet who create HTML/CSS templates for others to use, in many cases at no charge. So far this quarter, you have been writing HTML and CSS code yourselves so that you could understand what the core components of HTML and CSS are. In this lab you will take that fundamental knowledge and use it to modify a more complicated HTML/CSS template to suit your needs.
 
-You should build your portfolio to an audience of prospective employers or clients. Include relevant information about yourself and your work such as your name, education credentials, work experience, and professional goals. Include contact information, such as an email address and/or links to your LinkedIn, GitHub, or other media accounts that you think are helpful or relevant. Include examples of the maps you have made in prior labs, as well as examples of prior GIS work you've completed in undergraduate coursework or in prior employment. Use consistent styling, and make any updates or edits to prior work based on feedback you've received from me on earlier labs. Include a copy of your resume or CV *if you wish,* either displaying this as HTML content or including it as a downloadable PDF. 
+You should build your portfolio to an audience of prospective employers or clients. Include relevant information about yourself and your work such as your name, education credentials, work experience, and professional goals. Include contact information, such as an email address and/or links to your LinkedIn, GitHub, or other media accounts that you think are helpful or relevant. Include a your final project as an example of your prior work. Optionally, you may include examples of prior GIS work you've completed in undergraduate coursework or in prior employment. Use consistent styling across all pages. Include a copy of your resume or CV *if you wish,* either displaying this as HTML content or including it as a downloadable PDF. 
 
 Finally, you should include a brief description of your initial plan for your Capstone project. At this point, this can be a short textual description, or you can include links/images/datasets to provide more detail. 
 
 ### Requirements
 Your lab submission should meet these requirements:
-* Be hosted online and reachable using a publicly available URL
+* Be hosted online and be reachable using a publicly available URL
 * Be a functional website with no broken links or loading errors
 * Use an HTML/CSS template with a design that is effective for your purposes and which is responsive to different screen sizes
-* Have a comment in the HTML code indicating from where the template was obtained (a URL to the source is sufficient) 
+* Have a comment in the HTML code indicating where the template was obtained from (a URL to the source is sufficient) 
 * Include your name, educational credentials, and a brief professional bio about yourself
 * Incldue some means of contacting you; optionally, include links to any social media accounts you wish to include
 * Must not have any filler text, lorem ipsum, or any other default content from the template
-* Include pages that display your Lab 2, 3, 4, and 5 outputs from this quarter. 
+* Include a page that displays your final project output from this quarter. 
 * Optionally include highlights (be selective and choose the best examples!) of your prior GIS work or other creative or professional outputs
 * Optionally include your CV or resume
-* Describe your initial plans for your Capstone project
+* Describe your initial plans for your capstone project
 
 ### Additional resources
 
